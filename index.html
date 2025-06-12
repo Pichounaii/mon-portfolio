@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abderrahmane SASSI - Portfolio BTS SIO SISR</title>
+    
+    <!-- Google Font Élégante -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==== VARIABLES CSS - Personnalisation facile ==== */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* ==== RESET ET BASE ==== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* ==== UTILITAIRES ==== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* ==== HEADER ET NAVIGATION ==== */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ==== SECTION HERO ==== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==== BOUTONS ==== */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--bg-white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* ==== CARTES ==== */
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            margin-bottom: 2rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* ==== GRILLE RESPONSIVE ==== */
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .grid-2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .grid-2 > * {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .grid-3 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .grid-3 > * {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* ==== SECTIONS SPÉCIFIQUES ==== */
+        .about {
+            background: var(--bg-white);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* ==== COMPÉTENCES ==== */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 280px;
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* ==== PROJETS ==== */
+        .project-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* ==== ENTREPRISE DETAILS ==== */
+        .company-details {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 2rem;
+        }
+
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-block h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .info-block ul {
+            list-style: none;
+            color: var(--text-light);
+        }
+
+        .info-block li {
+            padding: 0.3rem 0;
+        }
+
+        /* ==== FOOTER ==== */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ==== RESPONSIVE DESIGN ==== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none; /* Simplification mobile - peut être amélioré avec un menu burger */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .grid-2 > *,
+            .grid-3 > * {
+                min-width: 100%;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .company-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .card,
+            .skill-category,
+            .project-content {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ==== ANIMATIONS ET EFFETS ==== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero > * {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* ==== STYLES SPÉCIAUX ==== */
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==== HEADER - Modifier les liens de navigation ici ==== -->
+    <header>
+        <nav class="container">
+            <div class="logo">A. SASSI</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#stage">Stage</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==== SECTION HERO - Modifier les informations personnelles ici ==== -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <h1>Abderrahmane SASSI</h1>
+            <p class="subtitle">Étudiant en informatique – BTS SIO SISR</p>
+            <p class="description">
+                Recherche une alternance pour la 2e année à partir de septembre 2025 (12 mois ou plus), 
+                en vue d'un Bachelor puis Master en Cybersécurité.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="btn btn-primary">Télécharger le CV</a>
+                <a href="#contact" class="btn btn-outline" style="color: white; border-color: white;">Me contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== À PROPOS - Modifier les informations personnelles ici ==== -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">À propos</h2>
+            <div class="about-content">
+                <p>
+                    Étudiant en 1ère année de BTS SIO option SISR à APEP SUP (Paris). 
+                    Passionné par les technologies de l'information et la cybersécurité, 
+                    je souhaite me spécialiser dans la sécurisation des infrastructures numériques.
+                </p>
+                <p>
+                    <span class="highlight">Localisation :</span> Choisy-le-Roi (94600) • 
+                    <span class="highlight">Permis B</span> en cours
+                </p>
+                
+                <!-- Informations de contact -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>abderr94600@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>06 10 64 78 52</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== PARCOURS - Modifier les formations ici ==== -->
+    <section id="parcours" class="section">
+        <div class="container">
+            <h2 class="section-title">Parcours</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>BTS SIO SISR</h3>
+                    <p><strong>APEP SUP, Paris</strong> • 2024/2026</p>
+                    <p>Formation en Solutions d'Infrastructure, Systèmes et Réseaux. Spécialisation en administration système, réseaux et cybersécurité.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Prépa Scientifique Informatique</h3>
+                    <p><strong>EFREI, Villejuif</strong> • 2023/2024</p>
+                    <p>Préparation scientifique avec spécialisation informatique et cours d'anglais renforcé.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Baccalauréat Général</h3>
+                    <p><strong>Saint André, Choisy-le-Roi</strong> • 2020/2023</p>
+                    <p>Mention assez bien. Formation générale avec approfondissement scientifique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== COMPÉTENCES - Modifier les compétences ici ==== -->
+    <section id="competences" class="section" style="background: var(--bg-white);">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Systèmes</h3>
+                    <ul class="skill-list">
+                        <li>Windows Server & Client</li>
+                        <li>Linux (Administration)</li>
+                        <li>Active Directory</li>
+                        <li>Virtualisation</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Réseaux</h3>
+                    <ul class="skill-list">
+                        <li>Switching & Routage</li>
+                        <li>Adressage IP</li>
+                        <li>DNS & DHCP</li>
+                        <li>CCNA (en cours)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Cybersécurité</h3>
+                    <ul class="skill-list">
+                        <li>Wazuh (SIEM)</li>
+                        <li>Analyse de logs</li>
+                        <li>Sécurité infrastructure</li>
+                        <li>Gestion des incidents</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Qualités Personnelles</h3>
+                    <ul class="skill-list">
+                        <li>Sens du service</li>
+                        <li>Patience & Écoute</li>
+                        <li>Respect hiérarchie</li>
+                        <li>Gestion du stress</li>
+                        <li>Esprit d'équipe</li>
+                        <li>Minutie</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== EXPÉRIENCES - Modifier les expériences ici ==== -->
+    <section id="experiences" class="section">
+        <div class="container">
+            <h2 class="section-title">Expériences</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Stage Technicien Informatique</h3>
+                    <p><strong>Mairie de Choisy-le-Roi</strong> • Avril-Juin 2025</p>
+                    <p>Support utilisateur, mise à jour Office, préparation de postes Windows/Linux avec déploiement de Wazuh pour la supervision sécurisée.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Poissonnier</h3>
+                    <p><strong>Leclerc Orly</strong> • Décembre 2024 - Février 2025</p>
+                    <p>Conseil clientèle, préparation manuelle des produits, gestion des ventes et respect des normes d'hygiène alimentaire.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Vendeur Stagiaire</h3>
+                    <p><strong>Darty Thiais</strong> • Juin 2024</p>
+                    <p>Réassort des rayons, conseil client sur les produits électroménagers, promotion de la carte fidélité.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Stage d'Observation</h3>
+                    <p><strong>Préfecture de Créteil</strong> • Mars 2019</p>
+                    <p>Découverte du fonctionnement administratif et des services publics départementaux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== DÉTAILS ENTREPRISE STAGE - Modifier les informations de l'entreprise ici ==== -->
+    <section id="stage" class="section" style="background: var(--bg-white);">
+        <div class="container">
+            <h2 class="section-title">Détails de l'Entreprise - Stage</h2>
+            
+            <div class="company-details">
+                <h3 style="color: var(--primary-color); margin-bottom: 2rem; text-align: center;">Mairie de Choisy-le-Roi</h3>
+                
+                <div class="company-grid">
+                    <div class="info-block">
+                        <h4>Informations Générales</h4>
+                        <ul>
+                            <li><strong>Adresse :</strong> 94600 Choisy-le-Roi</li>
+                            <li><strong>Forme juridique :</strong> Collectivité territoriale</li>
+                            <li><strong>Taille :</strong> Moyenne (>200 agents)</li>
+                            <li><strong>Secteur :</strong> Administration publique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>Historique & Contexte</h4>
+                        <ul>
+                            <li>Ville de banlieue sud de Paris</li>
+                            <li>Engagement dans la transition numérique</li>
+                            <li>Respect des normes RGPD</li>
+                            <li>Modernisation des services publics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>Analyse SWOT</h4>
+                        <ul>
+                            <li><strong>Forces :</strong> Équipe IT expérimentée</li>
+                            <li><strong>Faiblesses :</strong> Budget limité</li>
+                            <li><strong>Opportunités :</strong> Transition numérique</li>
+                            <li><strong>Menaces :</strong> Risques cyber croissants</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>RSE & Stratégie</h4>
+                        <ul>
+                            <li>Inclusion numérique des citoyens</li>
+                            <li>Écoresponsabilité IT</li>
+                            <li>Numérisation des services publics</li>
+                            <li>Amélioration continue des processus</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Bilan de stage -->
+                <div class="card mt-2">
+                    <h3>Bilan de Stage</h3>
+                    <p>
+                        Cette expérience m'a permis une montée en compétences techniques significative avec une réelle autonomie acquise. 
+                        J'ai développé ma maîtrise du support utilisateur et confirmé mon orientation vers la cybersécurité. 
+                        Le déploiement de Wazuh m'a particulièrement passionné et renforcé ma motivation pour ce domaine.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Bouton téléchargement -->
+            <div class="text-center mt-2">
+                <a href="#" class="btn btn-outline">📄 Télécharger le Tableau de Synthèse (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== PROJETS - Modifier les projets ici ==== -->
+    <section id="projets" class="section">
+        <div class="container">
+            <h2 class="section-title">Projets Personnels & Académiques</h2>
+            <div class="grid-2">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Site Portfolio HTML/CSS</h3>
+                        <p>Création d'un site portfolio responsive et moderne en HTML/CSS pur, démontrant mes compétences en développement web front-end.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Administration Linux</h3>
+                        <p>Maîtrise des droits utilisateurs, ligne de commande (CLI), et structure du système de fichiers Linux. Scripts d'automatisation.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Simulation Réseau</h3>
+                        <p>Configuration et simulation de réseaux complexes avec Cisco Packet Tracer. Routage, VLAN, et protocoles de sécurité.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Blog Personnel Sécurisé</h3>
+                        <p><em>(En cours de développement)</em><br>Création d'un blog personnel avec focus sur la cybersécurité, bonnes pratiques de sécurité web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== CONCLUSION - Modifier la conclusion ici ==== -->
+    <section class="section" style="background: var(--bg-white);">
+        <div class="container">
+            <h2 class="section-title">Conclusion</h2>
+            <div class="about-content">
+                <p style="font-size: 1.2rem; color: var(--text-dark);">
+                    Au cours de mon parcours, j'ai gagné en <span class="highlight">autonomie</span>, 
+                    <span class="highlight">rigueur</span> et développé mes compétences en 
+                    <span class="highlight">réseaux et systèmes</span>. 
+                    Je me projette solidement dans une carrière en <span class="highlight">cybersécurité</span>, 
+                    domaine qui me passionne et dans lequel je souhaite me spécialiser.
+                </p>
+                <p style="margin-top: 2rem;">
+                    Mon objectif est de contribuer activement à la sécurisation des infrastructures numériques 
+                    tout en continuant à apprendre et évoluer dans ce secteur en constante mutation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== CONTACT - Modifier les informations de contact ici ==== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="about-content">
+                <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                    N'hésitez pas à me contacter pour discuter d'opportunités d'alternance 
+                    ou pour tout renseignement complémentaire.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:abderr94600@gmail.com" style="color: var(--primary-color); text-decoration: none;">
+                            abderr94600@gmail.com
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="tel:0610647852" style="color: var(--primary-color); text-decoration: none;">
+                            06 10 64 78 52
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Choisy-le-Roi (94600)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==== FOOTER - Modifier les liens de réseaux sociaux ici ==== -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/abderrahmane-sassi" target="_blank">LinkedIn</a>
+                <a href="https://github.com/abdersassi" target="_blank">GitHub</a>
+                <a href="mailto:abderr94600@gmail.com">Email</a>
+            </div>
+            <p>&copy; 2025 Abderrahmane SASSI - Tous droits réservés</p>
+        </div>
+    </footer>
+
+</body>
+</html>
